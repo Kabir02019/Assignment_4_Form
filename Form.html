@@ -25,7 +25,7 @@
       }
 
       #displaytable {
-        /* Initially hide the table */
+       
 
     width:100%; 
     margin: 0 auto;
@@ -45,12 +45,12 @@
       th,
       td {
         padding: 8px;
-  text-align: left; /* Center-align the text within table cells */
+  text-align: left; 
   border-bottom: 1px solid #ddd;
       }
 
       th {
-        background-color: #f2f2f2; /* Header background color */
+        background-color: #f2f2f2; 
         
       }
     </style>
@@ -258,11 +258,11 @@
     </body>
    
     <script>
-      // var global_text = false; 
+     
       var form = document.getElementById("container");
       form.addEventListener("submit", submitted);
 
-      // Initially, we are setting to false
+    
       var validFirstName = false;
       var validLastName = false;
       var validEmail = false;
@@ -282,8 +282,6 @@
       var regExstreet2 = /^(?:[a-zA-Z0-9]{3,15})?$/;
 
 
-
-      // Values
       var firstName = document.getElementById("firstName");
       var lastName = document.getElementById("lastName");
       var emailId = document.getElementById("emailId");
@@ -306,10 +304,10 @@
       street2.addEventListener("input", validate);
       text.addEventListener("input", validate);
 
-      // Write a function to validate inputs
+  
       function validate(e) {
         var value = e.target.value;
-        var type = this.id; // Get the ID of the field
+        var type = this.id; 
         var em = "error_" + type;
 
         switch (type) {
@@ -492,48 +490,48 @@
   var checkboxes = document.querySelectorAll('.vehicle');
   var textboxDiv = document.getElementById('textboxDiv');
 
-  // Check if at least one checkbox is checked
+
   var atLeastOneChecked = Array.from(checkboxes).some(function (checkbox) {
     return checkbox.checked;
   });
 
-  // Create or remove the text input based on checkbox status
+  
   if (atLeastOneChecked) {
     var label = document.createElement('label');
     label.textContent = 'Other toppings* : ';
     
     var input = document.createElement('input');
-    // global_text = false;
+    
     
     input.type = 'text';
-    input.id = 'additionalInfo'; // Set an id for the input element
+    input.id = 'additionalInfo'; 
     input.setAttribute('required', 'required');
     
-    label.setAttribute('for', 'additionalInfo'); // Associate the label with the input
-    textboxDiv.innerHTML = ''; // Clear previous content
+    label.setAttribute('for', 'additionalInfo'); 
+    textboxDiv.innerHTML = ''; 
     textboxDiv.appendChild(label);
     textboxDiv.appendChild(input);
-    // document.getElementById('submit').removeAttribute('disabled');
+
   } else {
-    textboxDiv.innerHTML = ''; // Remove text input and label when no checkbox is checked
+    textboxDiv.innerHTML = ''; 
   }
 }
 
-// Add an event listener to each "vehicle" checkbox
+
 var checkboxes = document.querySelectorAll('.vehicle');
 checkboxes.forEach(function (checkbox) {
   checkbox.addEventListener('change', createTextBox);
 });
 
 
-// Add an event listener to each "vehicle" checkbox
+
 var checkboxes = document.querySelectorAll('.vehicle');
 checkboxes.forEach(function (checkbox) {
   checkbox.addEventListener('change', createTextBox);
 });
-      // Write a function submitted
+     
       function submitted(e) {
-        e.preventDefault(); // Prevent the form from submitting normally
+        e.preventDefault(); 
 
         if (
           validFirstName &&
@@ -632,7 +630,7 @@ checkboxes.forEach(function (checkbox) {
         submitButton.disabled = !valid;
       }
 
-      // Add event listeners for input fields to call checkFormValidity when they change
+      
       var inputFields = document.querySelectorAll(
         'input[type="text"], input[type="radio"], input[type="checkbox"], select, textarea'
       );
@@ -640,7 +638,7 @@ checkboxes.forEach(function (checkbox) {
         inputField.addEventListener("input", checkFormValidity);
       });
 
-      // Call checkFormValidity initially to disable the submit button
+    
       checkFormValidity();
 
 
