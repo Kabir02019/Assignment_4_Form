@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Feedback</title>
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+      label {
+        float: left;
+        width: 150px;
+      }
+      #container {
+        width: 700px;
+        margin: auto;
+        background-color: beige;
+      }
+      main {
+        padding: 50px;
+      }
+      .vehicle {
+        display: none;
+      }
+
+      #displaytable {
+        /* Initially hide the table */
+
+    width:100%; 
+    margin: 0 auto;
+   
+
+       
+      }
+
+      #displayTable {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 auto;
+        width:100%; 
+        ;
+      }
+
+      th,
+      td {
+        padding: 8px;
+  text-align: left; /* Center-align the text within table cells */
+  border-bottom: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #f2f2f2; /* Header background color */
+        
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <main>
+        <h2>Feedback</h2>
+        <h3>Love something? Hate something? Let us know!</h3>
+        Note: Fields marked with an asterisk(*) are mandatory
+        <br /><br />
+        <form method="post" validate id="myForm">
+          <label>Title*:</label>
+          <input
+            type="radio"
+            name="title"
+            id="miss"
+            value="miss"
+            required="required"
+          />Miss
+          <input
+            type="radio"
+            name="title"
+            id="mr"
+            value="mr"
+            required="required"
+          />Mr.
+          <input
+            type="radio"
+            name="title"
+            id="mrs"
+            value="mrs"
+            required="required"
+          />Mrs. <br /><br />
+          <label for="firstName">First Name*:</label>
+          <input
+            type="text"
+            name="firstName"
+            id="firstName"
+            placeholder="First Name"
+          />
+          <br /><br />
+          <div id="error_firstName" style="display: none; color: red">
+            Invalid first name, Please enter a valid name.
+            <br /><br />
+          </div>
+          <label for="lastName">Last Name*:</label>
+          <input
+            type="text"
+            name="lastName"
+            id="lastName"
+            placeholder="Last Name"
+          />
+          <br /><br />
+          <div id="error_lastName" style="display: none; color: red">
+            Invalid last name, Please enter a valid name.
+            <br /><br />
+          </div>
+          <label for="emailId">Email Id*:</label>
+          <input
+            type="text"
+            name="emailId"
+            id="emailId"
+            placeholder="yourname@domain.com"
+          />
+          <br /><br />
+          <div id="error_emailId" style="display: none; color: red">
+            Invalid email address, Please enter a valid email in
+            user@northeastern.edu format.
+            <br /><br />
+          </div>
+          <label for="phoneNumber">Phone Number*:</label>
+          <input
+            type="text"
+            name="phoneNumber"
+            id="phoneNumber"
+            placeholder="xxx-xxx-xxxx"
+          />
+          <br /><br />
+          <div id="error_phoneNumber" style="display: none; color: red">
+            Invalid phone number, enter a valid phone number in xxx-xxx-xxxx
+            format.
+            <br /><br />
+          </div>
+          <label for="street1">Street Address 1*:</label>
+          <input type="text" name="street1" id="street1" placeholder="xxxxxx" />
+          <br /><br />
+          <div id="error_street1" style="display: none; color: red">
+            street 1 is a mandatory field, enter a valid street address.
+            <br /><br />
+          </div>
+
+          <label for="street2">Street Address 2:</label>
+          <input type="text" name="street2" id="street2" placeholder="xxxxxx" />
+          <br /><br />
+          <div id="error_street2" style="display: none; color: red">
+            street 2 is not a mandatory field, if filled enter a valid street address.
+            <br /><br />
+          </div>
+          <label for="city">City*:</label>
+          <input type="text" name="city" id="city" placeholder="xxxxxx" />
+          <br /><br />
+          <div id="error_city" style="display: none; color: red">
+            Invalid City Name, Please Enter a valid city.
+            <br /><br />
+          </div>
+
+          <label for="zipcode">Zipcode*:</label>
+          <input
+            type="text"
+            name="zipcode"
+            id="zipcode"
+            placeholder="zipcode"
+          />
+          <br /><br />
+          <div id="error_zipcode" style="display: none; color: red">
+            Invalid Zipcode, Please enter a valid 5 digit zipcode.
+            <br /><br />
+          </div>
+          <label for="social">How did you hear*:</label>
+          <input
+            class="checkbox"
+            type="checkbox"
+            name="source"
+            value="facebook"
+          />
+          Facebook
+          <input
+            class="checkbox"
+            type="checkbox"
+            name="source"
+            value="google"
+          />
+          Google
+          <input class="checkbox" type="checkbox" name="source" value="yelp" />
+          Yelp <br /><br />
+          <label for="comments">Comments*:</label>
+          <textarea
+            name="text"
+            id="comments"
+            placeholder="Your comments"
+            rows="5"
+            cols="25"
+          ></textarea>
+          <br /><br />
+          <div id="error_comments" style="display: none; color: red">
+            Invalid comments, Please enter a valid comment.
+            <br /><br />
+          </div>
+          <label for="drink">Select your drink !:</label>
+          <select id="Choose1" name="Name" onchange="Func_a()">
+            <option value="Coffee">Coffee</option>
+            <option value="Tea">Tea</option>
+            <option value="Coke">Coke</option>
+            <option value="Cold Brew">Cold Brew</option>
+            <option value="Cold Coffee">Cold Coffee</option>
+          </select>
+          <br /><br />
+          <input type="checkbox" class="vehicle" name="vehicle"/>
+          <label id="vehicle1"> </label>
+          <br />
+          <input type="checkbox" class="vehicle" name="vehicle"/>
+          <label id="vehicle2"> </label>
+          <br /><br />
+
+
+          <div id="textboxDiv" ></div>
+          <br /><br />
+          <div>
+          <input id="error_textboxDiv" style="display: none; color: red">
+          </div>
+
+          <input type="Submit" id="submit"/>
+          <input type="Reset" />
+          <br /><br />
+        </form>
+      </main>
+    </div>
+
+    <div id="displaytable" style="display: none;">
+      <table
+        id="displayTable"
+        style="display: block; width: 100%"
+        cellpadding="1"
+        cellspacing="0"
+      >
+        <tr>
+          <th>Title</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email Id</th>
+          <th>Phone Number</th>
+          <th>Street Address 1</th>
+          <th>Street Address 2</th>
+          <th>City</th>
+          <th>Zipcode</th>
+          <th>Social</th>
+          <th>Comments</th>
+          <th>Drink</th>
+          <th>Type</th>
+          <th>Additional info for your order</th>
+        </tr>
+      </table>
+    </div>
+    </body>
+   
+    <script>
+      // var global_text = false; 
+      var form = document.getElementById("container");
+      form.addEventListener("submit", submitted);
+
+      // Initially, we are setting to false
+      var validFirstName = false;
+      var validLastName = false;
+      var validEmail = false;
+      var validPhone = false;
+      var validStreet1 = false;
+      var validzipcode = false;
+      var validcity = false;
+      var validComments = false;
+      var validStreet2 = false;
+      var global_text = false; 
+
+      var regExName = /^[a-zA-Z]{2,15}$/;
+      var regExEmail = /^([\w\.]+)@northeastern\.edu$/;
+      var regExPhone = /\d{3}-?\d{3}-\d{4}$/;
+      var regExstreet1 = /^[a-zA-Z0-9]{2,30}$/;
+      var regExZipcode = /^[0-9]{5}$/;
+      var regExstreet2 = /^(?:[a-zA-Z0-9]{3,15})?$/;
+
+
+
+      // Values
+      var firstName = document.getElementById("firstName");
+      var lastName = document.getElementById("lastName");
+      var emailId = document.getElementById("emailId");
+      var phoneNumber = document.getElementById("phoneNumber");
+      var street1 = document.getElementById("street1");
+      var zipcode = document.getElementById("zipcode");
+      var city = document.getElementById("city");
+      var comments = document.getElementById("comments");
+      var street2 = document.getElementById("street2");
+      var text = document.getElementById("textboxDiv");
+
+      firstName.addEventListener("input", validate);
+      lastName.addEventListener("input", validate);
+      emailId.addEventListener("input", validate);
+      phoneNumber.addEventListener("input", validate);
+      street1.addEventListener("input", validate);
+      zipcode.addEventListener("input", validate);
+      city.addEventListener("input", validate);
+      comments.addEventListener("input", validate);
+      street2.addEventListener("input", validate);
+      text.addEventListener("input", validate);
+
+      // Write a function to validate inputs
+      function validate(e) {
+        var value = e.target.value;
+        var type = this.id; // Get the ID of the field
+        var em = "error_" + type;
+
+        switch (type) {
+          case "firstName":
+            if (!value.trim().match(regExName)) {
+              document.getElementById(em).style.display = "block";
+              this.style.border = "2px solid red";
+              validFirstName = false;
+            } else {
+              document.getElementById(em).style.display = "none";
+              this.style.border = "";
+              validFirstName = true;
+            }
+            break;
+          case "lastName":
+            if (!value.trim().match(regExName)) {
+              document.getElementById(em).style.display = "block";
+              this.style.border = "2px solid red";
+              validLastName = false;
+            } else {
+              document.getElementById(em).style.display = "none";
+              this.style.border = "";
+              validLastName = true;
+            }
+            break;
+          case "emailId":
+            if (!value.trim().match(regExEmail)) {
+              document.getElementById(em).style.display = "block";
+              this.style.border = "2px solid red";
+              validEmail = false;
+            } else {
+              document.getElementById(em).style.display = "none";
+              this.style.border = "";
+              validEmail = true;
+            }
+            break;
+          case "phoneNumber":
+            if (!value.trim().match(regExPhone)) {
+              document.getElementById(em).style.display = "block";
+              this.style.border = "2px solid red";
+              validPhone = false;
+            } else {
+              document.getElementById(em).style.display = "none";
+              this.style.border = "";
+              validPhone = true;
+            }
+            break;
+          case "street1":
+            if (!value.trim().match(regExstreet1)) {
+              document.getElementById(em).style.display = "block";
+              this.style.border = "2px solid red";
+              validStreet1 = false;
+            } else {
+              document.getElementById(em).style.display = "none";
+              this.style.border = "";
+              validStreet1 = true;
+            }
+            break;
+          case "zipcode":
+            if (!value.trim().match(regExZipcode)) {
+              document.getElementById(em).style.display = "block";
+              this.style.border = "2px solid red";
+              validzipcode = false;
+            } else {
+              document.getElementById(em).style.display = "none";
+              this.style.border = "";
+              validzipcode = true;
+            }
+            break;
+          case "city":
+            if (!value.trim().match(regExName)) {
+              document.getElementById(em).style.display = "block";
+              this.style.border = "2px solid red";
+              validcity = false;
+            } else {
+              document.getElementById(em).style.display = "none";
+              this.style.border = "";
+              validcity = true;
+            }
+            break;
+          case "comments":
+            if (!value.trim().match(regExstreet1)) {
+              document.getElementById(em).style.display = "block";
+              this.style.border = "2px solid red";
+              validComments = false;
+            } else {
+              document.getElementById(em).style.display = "none";
+              this.style.border = "";
+              validComments = true;
+            }
+            break;
+
+            case "street2":
+              if (!value.trim().match(regExstreet2)) {
+                document.getElementById(em).style.display = "block";
+                this.style.border = "2px solid red";
+                validStreet2 = false;
+                } else {
+                  document.getElementById(em).style.display = "none";
+                  this.style.border = "";
+                  validStreet2 = true;
+                }
+                break;
+
+                case "text":
+                  if (!value.trim().match(regExstreet1)) {
+                    document.getElementById(em).style.display = "block";
+                    this.style.border = "2px solid red";
+                    global_text = false;
+                    } else {
+                      document.getElementById(em).style.display = "none";
+                      this.style.border = "";
+                      global_text = true;
+                      
+                    }
+                    break;
+           
+        
+        }
+      }
+
+      function Func_a() {
+        var x_ip = document.getElementById("Choose1").value;
+        var labels = [
+          document.getElementById("vehicle1"),
+          document.getElementById("vehicle2"),
+        ];
+        var checkboxes = document.getElementsByClassName("vehicle");
+
+        if (x_ip == "Coffee") {
+          labels[0].innerHTML = "hot coffee";
+          labels[0].style.display = "inline";
+          labels[1].innerHTML = "iced coffee";
+          labels[1].style.display = "inline";
+
+
+          for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].style.display = "inline";
+          }
+        } else if (x_ip == "Tea") {
+          labels[0].innerHTML = "hot tea";
+          labels[0].style.display = "inline";
+          labels[1].innerHTML = "ice tea";
+          labels[1].style.display = "inline";
+
+          for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].style.display = "inline";
+          }
+        } else if (x_ip == "Coke") {
+          labels[0].innerHTML = "Normal";
+          labels[0].style.display = "inline";
+          labels[1].innerHTML = "Diet";
+          labels[1].style.display = "inline";
+
+          for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].style.display = "inline";
+          }
+        } else if (x_ip == "Cold Brew") {
+          labels[0].innerHTML = "normal";
+          labels[0].style.display = "inline";
+          labels[1].innerHTML = "vanilla";
+          labels[1].style.display = "inline";
+
+          for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].style.display = "inline";
+          }
+        } else if (x_ip == "Cold Coffee") {
+          labels[0].innerHTML = "no ice cream";
+          labels[0].style.display = "inline";
+          labels[1].innerHTML = "with ice cream";
+          labels[1].style.display = "inline";
+
+          for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].style.display = "inline";
+          }
+        }
+        
+      }
+      function createTextBox() {
+  var checkboxes = document.querySelectorAll('.vehicle');
+  var textboxDiv = document.getElementById('textboxDiv');
+
+  // Check if at least one checkbox is checked
+  var atLeastOneChecked = Array.from(checkboxes).some(function (checkbox) {
+    return checkbox.checked;
+  });
+
+  // Create or remove the text input based on checkbox status
+  if (atLeastOneChecked) {
+    var label = document.createElement('label');
+    label.textContent = 'Other toppings* : ';
+    
+    var input = document.createElement('input');
+    // global_text = false;
+    
+    input.type = 'text';
+    input.id = 'additionalInfo'; // Set an id for the input element
+    input.setAttribute('required', 'required');
+    
+    label.setAttribute('for', 'additionalInfo'); // Associate the label with the input
+    textboxDiv.innerHTML = ''; // Clear previous content
+    textboxDiv.appendChild(label);
+    textboxDiv.appendChild(input);
+    // document.getElementById('submit').removeAttribute('disabled');
+  } else {
+    textboxDiv.innerHTML = ''; // Remove text input and label when no checkbox is checked
+  }
+}
+
+// Add an event listener to each "vehicle" checkbox
+var checkboxes = document.querySelectorAll('.vehicle');
+checkboxes.forEach(function (checkbox) {
+  checkbox.addEventListener('change', createTextBox);
+});
+
+
+// Add an event listener to each "vehicle" checkbox
+var checkboxes = document.querySelectorAll('.vehicle');
+checkboxes.forEach(function (checkbox) {
+  checkbox.addEventListener('change', createTextBox);
+});
+      // Write a function submitted
+      function submitted(e) {
+        e.preventDefault(); // Prevent the form from submitting normally
+
+        if (
+          validFirstName &&
+          validLastName &&
+          validEmail &&
+          validPhone &&
+          validStreet1 &&
+          validcity &&
+          validzipcode && atLeastOneCheckboxChecked("source")
+
+          
+        ) {
+        
+          alert("Data entered successfully");
+          
+          var table = document.getElementById("displayTable");
+          var row = table.insertRow(1);
+          var cell1 = row.insertCell(0);
+          var cell2 = row.insertCell(1);
+          var cell3 = row.insertCell(2);
+          var cell4 = row.insertCell(3);
+          var cell5 = row.insertCell(4);
+          var cell6 = row.insertCell(5);
+          var cell7 = row.insertCell(6);
+          var cell8 = row.insertCell(7);
+          var cell9 = row.insertCell(8);
+          var cell10 = row.insertCell(9);
+          var cell11 = row.insertCell(10);
+          var cell12 = row.insertCell(11);
+          var cell13 = row.insertCell(12);
+          var cell14 = row.insertCell(13);
+
+          var inputElements = document.getElementsByClassName("checkbox");
+          var checkedValue = [];
+          for (var i = 0; i < inputElements.length; ++i) {
+            if (inputElements[i].checked) {
+              checkedValue.push(inputElements[i].value);
+            }
+          }
+        
+
+          // Get the values from the form fields
+          cell1.innerHTML = document.querySelector(
+            'input[name="title"]:checked'
+          ).value;
+          cell2.innerHTML = document.getElementById("firstName").value;
+          cell3.innerHTML = document.getElementById("lastName").value;
+          cell4.innerHTML = document.getElementById("emailId").value;
+          cell5.innerHTML = document.getElementById("phoneNumber").value;
+          cell6.innerHTML = document.getElementById("street1").value;
+          cell7.innerHTML = document.getElementById("street2").value;
+          cell8.innerHTML = document.getElementById("city").value;
+          cell9.innerHTML = document.getElementById("zipcode").value;
+          cell10.innerHTML = checkedValue.join(", ");
+          cell11.innerHTML = document.getElementById("comments").value;
+          cell12.innerHTML =selectElement = document.querySelector('#Choose1').value;
+
+          var selectedLabels = [];
+    var label1 = document.getElementById("vehicle1");
+    var label2 = document.getElementById("vehicle2");
+
+    if (document.querySelector('.vehicle:checked')) {
+      if (document.getElementById("vehicle1").previousElementSibling.checked) {
+        selectedLabels.push(label1.textContent.trim());
+      }
+      if (document.getElementById("vehicle2").previousElementSibling.checked) {
+        selectedLabels.push(label2.textContent.trim());
+      }
+    }
+
+    cell13.innerHTML = selectedLabels.join(", ");
+    cell14.innerHTML = document.getElementById("additionalInfo").value;
+    document.getElementById("displaytable").style.display = "block";
+    document.getElementById("myForm").reset();
+          
+
+        } else {
+          alert("Please enter valid details");
+        }
+      }
+
+
+      function checkFormValidity() {
+        var valid =
+          validFirstName &&
+          validLastName &&
+          validEmail &&
+          validPhone &&
+          validStreet1 &&
+          validcity &&
+          validzipcode &&
+          validComments &&
+          validStreet2 && atLeastOneCheckboxChecked("source");
+
+        var submitButton = document.getElementById("submit");
+        submitButton.disabled = !valid;
+      }
+
+      // Add event listeners for input fields to call checkFormValidity when they change
+      var inputFields = document.querySelectorAll(
+        'input[type="text"], input[type="radio"], input[type="checkbox"], select, textarea'
+      );
+      inputFields.forEach(function (inputField) {
+        inputField.addEventListener("input", checkFormValidity);
+      });
+
+      // Call checkFormValidity initially to disable the submit button
+      checkFormValidity();
+
+
+    function valthis() {
+    var checkBoxes = document.getElementsByClassName('checkbox');
+    var isChecked = false;
+    for (var i = 0; i < checkBoxes.length; i++) {
+        if (checkBoxes[i].checked) {
+            isChecked = true;
+        };
+    };
+    if (isChecked) {
+        alert('At least one checkbox checked!');
+    } else {
+        alert('Please, check at least one checkbox!');
+    }
+}
+
+
+function atLeastOneCheckboxChecked(checkboxName) {
+  var checkboxes = document.getElementsByName(checkboxName);
+  for (var i = 0; i < checkboxes.length; i++) {
+    if (checkboxes[i].checked) {
+      return true;
+    }
+  }
+  return false;
+}
+
+
+      
+    </script>
+     </html>
+  
+
+
